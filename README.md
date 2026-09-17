@@ -23,4 +23,4 @@ docker run --rm -i -v "$PWD":/data latex pdflatex sofia_domracheva_resume.tex
 
 ### License
 
-Format is MIT but all the data is owned by Sourabh Bajaj.
+Resume template is under MIT license (original by Sourabh Bajaj). All personal data is owned by Sofia Domrachev.

@@ -29,4 +29,4 @@ jobs:
             mv resume_preview-1.png resume_preview.png
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Apply pdflatex changes
+          commit_message: Update PNG and PDF preview

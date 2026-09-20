@@ -2,9 +2,9 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   compile:
@@ -21,6 +21,12 @@ jobs:
           run: |
             cd data
             pdflatex sofia_domracheva_resume.tex
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Generate PNG preview
+        run: |
+            sudo apt-get update
+            sudo apt-get install -y poppler-utils
+            pdftoppm -png -r 300 -f 1 -l 1 sofia_domracheva_resume.pdf resume_preview
+            mv resume_preview-1.png resume_preview.png
+      - uses: sofia-domracheva/git-auto-commit-action@v5
         with:
           commit_message: Apply pdflatex changes
